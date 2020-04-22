@@ -1,9 +1,15 @@
 import React from "react";
 import { View, Text, Button, StyleSheet } from "react-native";
+import { CATEGORIES } from "../data/dummy-data";
 
 const CategoryMealScreen = (props) => {
   console.log(props);
+
+  const { myId } = props.route.params;
+  const meal = CATEGORIES.find((cat) => cat.id === myId);
+
   props.navigation.setOptions({
+    title: meal.title,
     headerStyle: {
       backgroundColor: "#f4511e",
     },
@@ -12,11 +18,11 @@ const CategoryMealScreen = (props) => {
       fontWeight: "bold",
     },
   });
-  const { itemId } = props.route.params;
+
   return (
     <View style={styles.screen}>
-      <Text>The Category Meal Screen! id={itemId}</Text>
-
+      <Text>The Category Meal Screen! id={myId}</Text>
+      <Text>Meal: {meal.title}</Text>
       <Button
         title="Go to Details"
         onPress={() => {

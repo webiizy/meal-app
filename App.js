@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Platform, StatusBar } from "react-native";
+import { GalioProvider, Text } from "galio-framework";
+import { materialTheme } from "./constants/";
+
 import * as Font from "expo-font";
 import { AppLoading } from "expo";
 
@@ -26,16 +29,10 @@ export default function App() {
   }
   return (
     <NavigationContainer>
-      <MainStack />
+      <GalioProvider theme={materialTheme}>
+        {Platform.OS === "ios" && <StatusBar barStyle="default" />}
+        <MainStack />
+      </GalioProvider>
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
