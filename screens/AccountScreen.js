@@ -1,11 +1,12 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
+import { Button, Block, Text, NavBar, theme } from "galio-framework";
 
 const AccountScreen = () => {
   return (
-    <View>
-      <Text>AccountScreen</Text>
-    </View>
+    <Block row center card shadow space="between">
+      <Text>AccountScreen </Text>
+    </Block>
   );
 };
 
